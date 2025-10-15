@@ -26,8 +26,12 @@
 package com.sun.tools.javac.parser;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.function.Predicate;
+
+import javax.naming.Context;
+
 import java.util.Map;
 
 import com.sun.tools.javac.api.Formattable;
@@ -71,7 +75,74 @@ public class Tokens {
                 keywords.put(t.name, t);
             }
         }
+
+
     }
+
+    Map<String, TokenKind> spanish = Map.of(
+
+        // Spanish keywords mapping
+        "clase", TokenKind.CLASS,
+        "interfaz", TokenKind.INTERFACE, // interface
+        "enum", TokenKind.ENUM,          // enum
+        "público", TokenKind.PUBLIC,     // public
+        "protegido", TokenKind.PROTECTED, // protected
+        "privado", TokenKind.PRIVATE,   // private
+        "abstracto", TokenKind.ABSTRACT, // abstract
+        "estático", TokenKind.STATIC,   // static
+        "final", TokenKind.FINAL,       // final
+        "sincronizado", TokenKind.SYNCHRONIZED, // synchronized
+        "nativo", TokenKind.NATIVE,     // native
+        "estrictofp", TokenKind.STRICTFP, // strictfp
+        "transitorio", TokenKind.TRANSIENT, // transient
+        "volátil", TokenKind.VOLATILE, // volatile
+        "volver", TokenKind.RETURN,   // return
+        "si", TokenKind.IF,             // if
+        "sino", TokenKind.ELSE,        // else
+        "mientras", TokenKind.WHILE,   // while
+        "haz", TokenKind.DO,         // do
+        "dado", TokenKind.FOR,         // for
+        "sal", TokenKind.BREAK, // break
+        "continua", TokenKind.CONTINUE, // continue
+        "diverge", TokenKind.SWITCH,   // switch
+        "caso", TokenKind.CASE,        // case
+        "predeterminado", TokenKind.DEFAULT, // default
+        "intenta", TokenKind.TRY,          // try
+        "captura", TokenKind.CATCH,   // catch
+        "finalmente", TokenKind.FINALLY, // finally
+        "lanza", TokenKind.THROW,     // throw
+        "importa", TokenKind.IMPORT,  // import
+        "paquete", TokenKind.PACKAGE,  // package
+        "nuevo", TokenKind.NEW,        // new
+        "este", TokenKind.THIS,        // this
+        "super", TokenKind.SUPER,      // super
+        "nulo", TokenKind.NULL,        // null
+        "verdadero", TokenKind.TRUE,   // true
+        "falso", TokenKind.FALSE,      // false
+        "instanciaDe", TokenKind.INSTANCEOF, // instanceof
+        "booleano", TokenKind.BOOLEAN, // boolean
+        "carácter", TokenKind.CHAR,    // char
+        "byte", TokenKind.BYTE,        // byte
+        "corto", TokenKind.SHORT,      // short
+        "ent", TokenKind.INT,          // int
+        "entLargo", TokenKind.LONG,       // long
+        "entFlotante", TokenKind.FLOAT,   // float
+        "entDoble", TokenKind.DOUBLE,     // double
+        "vacío", TokenKind.VOID,
+        "constante", TokenKind.CONST, // const
+        "sellado", TokenKind.SEALED, // sealed
+        "noSellado", TokenKind.NON_SEALED, // non-sealed
+        "permite", TokenKind.PERMITS, // permits
+        "registra", TokenKind.RECORD, // record
+        "con", TokenKind.WITH, // with
+        "var", TokenKind.VAR, // var
+        "permite", TokenKind.PERMITS, // permits
+        "ofrece", TokenKind.YIELD, // yield
+        "casoPorDefecto", TokenKind.CASE_DEFAULT, // case default
+        "casoMúltiple", TokenKind.CASE_MULTIPLE // case multiple
+
+
+    );
 
     /**
      * Create a new token given a name; if the name corresponds to a token name,
